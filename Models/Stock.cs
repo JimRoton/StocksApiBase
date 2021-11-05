@@ -1,6 +1,6 @@
 using System;
 
-namespace StocksApi
+namespace StocksApi.Models
 {
     public class Stock
     {
