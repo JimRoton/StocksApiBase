@@ -1,17 +1,19 @@
-﻿using System;
+using System;
 using StocksApi.Models;
 using StocksApi.Interfaces;
+using StocksApi.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace StocksApi.Controllers
+namespace SearchApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class SearchController : ControllerBase
     {
-        private readonly ILogger<SearchController> _logger;
         private readonly IStocksManager _stocksManager;
+
+        private readonly ILogger<SearchController> _logger;
 
         public SearchController(ILogger<SearchController> logger, IStocksManager stocksManager)
         {
@@ -28,7 +30,7 @@ namespace StocksApi.Controllers
 
                 return stock != null ? Ok(stock) : NoContent();
             }
-            catch (Exceptions.YahooException ex)
+            catch (StocksApi.Exceptions.YahooException ex)
             {
                 // log exception
                 _logger.LogError(ex.Message, ex);
@@ -44,31 +46,6 @@ namespace StocksApi.Controllers
                 // return 
                 return StatusCode(500);
             }
-            // try
-            // {
-                
-            //     // if the symbol is Microsoft, return the Ok with data (200)
-            //     if (symbol == "MSFT")
-            //         return Ok(
-            //              new Stock(){
-            //             Symbol = "MSFT",
-            //             Name = "Microsoft",
-            //             Price = 100.01,
-            //             Date = new DateTime()
-            //         }
-            //         );
-
-            //     // if not Microsoft, return Ok NoContent (204)
-            //     return NoContent();
-            // }
-            // catch(Exception ex)
-            // {
-            //     // log exceptions
-            //     _logger.LogError(ex.Message, ex);
-
-            //     // return 
-            //     return StatusCode(500);
-            // }
 
         }
     }
