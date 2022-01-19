@@ -21,32 +21,32 @@ namespace SearchApi.Controllers
             _stocksManager = stocksManager;
         }
 
-        [HttpGet("{symbol}")]
-        public IActionResult Get(string symbol)
-        {
-            try
-            {
-                Stock stock = _stocksManager.GetStock(symbol);
+        // [HttpGet("{symbol}")]
+        // public IActionResult Get(string symbol)
+        // {
+        //     try
+        //     {
+        //         Stock stock = _stocksManager.GetStock(symbol);
 
-                return stock != null ? Ok(stock) : NoContent();
-            }
-            catch (StocksApi.Exceptions.YahooException ex)
-            {
-                // log exception
-                _logger.LogError(ex.Message, ex);
+        //         return stock != null ? Ok(stock) : NoContent();
+        //     }
+        //     catch (StocksApi.Exceptions.YahooException ex)
+        //     {
+        //         // log exception
+        //         _logger.LogError(ex.Message, ex);
 
-                // return
-                return StatusCode(500, new {StatusCode=500, Title=ex.Message });
-            }
-            catch(Exception ex)
-            {
-                // log exceptions
-                _logger.LogError(ex.Message, ex);
+        //         // return
+        //         return StatusCode(500, new {StatusCode=500, Title=ex.Message });
+        //     }
+        //     catch(Exception ex)
+        //     {
+        //         // log exceptions
+        //         _logger.LogError(ex.Message, ex);
 
-                // return 
-                return StatusCode(500);
-            }
+        //         // return 
+        //         return StatusCode(500);
+        //     }
 
-        }
+        // }
     }
 }

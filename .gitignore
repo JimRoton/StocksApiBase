@@ -1,2 +1,8 @@
 bin
 obj
+.vscode/launch.json
+.vscode/tasks.json
+.vs/StocksApi/DesignTimeBuild/.dtbcache.v2
+.vs/StocksApi/project-colors.json
+.vs/StocksApi/v17/.futdcache.v1
+.vs/StocksApi/v17/.suo
