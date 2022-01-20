@@ -6,7 +6,7 @@ using StackExchange.Redis;
 using StocksApi.Interfaces;
 using Microsoft.Extensions.Options;
 
-namespace SearchApi.Services
+namespace StocksApi.Services
 {
 
 

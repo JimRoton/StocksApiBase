@@ -6,7 +6,7 @@ using StocksApi.Interfaces;
 using Microsoft.Extensions.Options;
 using SearchApi.Configs;
 
-namespace SearchApi.Services
+namespace StocksApi.Services
 {
     public class YahooService : IYahooService
     {

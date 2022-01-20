@@ -1,6 +1,6 @@
 namespace StocksApi.Interfaces
 {
-    public interface IYahooService : IStockService
+    public interface IYahooService : IStocksManager
     {
     }
 }
